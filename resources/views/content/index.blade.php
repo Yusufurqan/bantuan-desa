@@ -6,14 +6,6 @@
 	<div class="col-md-8">
 		<a href="{{route('index.create')}}" class="btn btn-info">TAMBAH INDEX</a>
 	</div>
-	{{-- <div class="col-md-4">
-	<form action="{{route('admin.cari_berita')}}" method="post">
-			{{csrf_field()}}
-			<div class="form-group">
-				<input type="text" name="cari" class="form-control" placeholder="Masukan Judul Berita">
-			</div>
-		</form>
-	</div> --}}
 </div>
 {{-- @if($massage = Session::has('success'))
 	<div class="alert alert-success">
