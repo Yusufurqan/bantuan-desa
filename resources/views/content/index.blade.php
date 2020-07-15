@@ -5,6 +5,7 @@
 <div class="row">
 	<div class="col-md-8">
 		<a href="{{route('index.create')}}" class="btn btn-info">TAMBAH INDEX</a>
+		<a href="/index/downloadPDF" class="btn btn-primary" target="_blank">CETAK PDF</a>
 	</div>
 </div>
 {{-- @if($massage = Session::has('success'))
@@ -20,8 +21,8 @@
 		<th>Tanggal</th>
 		<th>COA ID</th>
         <th>Keterangan</th>
-        <th>Debet</th>
         <th>Kredit</th>
+        <th>Debet</th>
 		<th>Saldo</th>
 		<th>Action</th>
 	</tr>
@@ -33,9 +34,9 @@
 		<td>{{$d->tanggal}}</td>
 		<td>{{$d->coa_id}}</td>
         <td>{{$d->keterangan}}</td>
-        <td>{{$d->debet}}</td>
-        <td>{{$d->kredit}}</td>
-		<td>{{$d->saldo}}</td>
+        <td>@currency($d->kredit)</td>
+        <td>@currency($d->debet)</td>
+		<td>@currency($d->saldo)</td>
 		<td>
 			<form action="{{ route('index.destroy',$d->id) }}" method="POST">
 	

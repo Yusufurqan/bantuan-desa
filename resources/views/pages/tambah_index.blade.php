@@ -1,5 +1,15 @@
 @extends('layouts.main')
 @section('content')
+<script>
+  function sum() {
+        var kredit = document.getElementById('kredit').value;
+        var debet = document.getElementById('debet').value;
+        var result = parseInt(kredit) - parseInt(debet);
+        if (!isNaN(result)) {
+           document.getElementById('saldo').value = result;
+        }
+  }
+</script>
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
     <h1 class="display-3">Tambah Index</h1>
@@ -32,16 +42,16 @@
               <textarea name="keterangan" class="form-control"></textarea>
           </div>
           <div class="form-group">
-              <label for="debet">Debet</label>
-              <input type="text" class="form-control" name="debet"/>
+              <label for="Kredit">Kredit</label>
+              <input type="text" class="form-control" name="kredit" id="kredit" onkeyup="sum()"/>
           </div>
           <div class="form-group">
-              <label for="Kredit">Kredit</label>
-              <input type="text" class="form-control" name="kredit"/>
+              <label for="debet">Debet</label>
+              <input type="text" class="form-control" name="debet" id="debet" onkeyup="sum()"/>
           </div>
           <div class="form-group">
               <label for="saldo">Saldo</label>
-              <input type="text" class="form-control" name="saldo"/>
+              <input type="text" class="form-control" name="saldo" id="saldo" readonly="readonly"/>
           </div>                         
           <button type="submit" class="btn btn-primary-outline">Kirim</button>
       </form>

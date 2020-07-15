@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Coa;
 use Illuminate\Http\Request;
 use App\Index;
-use App\User;
-use Session;
+// use App\User;
+use PDF;
+// use Session;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
@@ -119,5 +120,14 @@ class IndexController extends Controller
         //     return redirect()->route('admin.berita');
         // }
         return redirect()->route('index.index');
+    }
+
+    public function cetak_pdf()
+    {
+    	$index = Index::all();
+ 
+    	$pdf = PDF::loadview('pdf',['index'=>$index]);
+        return $pdf->download('laporan-index-pdf');
+        // return $pdf->stream();
     }
 }

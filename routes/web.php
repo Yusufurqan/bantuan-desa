@@ -21,5 +21,6 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function()
 {
     Route::resource('index','IndexController');
+    Route::get('/index/downloadPDF','IndexController@cetak_pdf');
     Route::resource('home', 'HomeController');
 });
